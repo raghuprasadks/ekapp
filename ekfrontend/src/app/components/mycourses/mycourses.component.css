@@ -1,0 +1,8 @@
+#course{
+    border: 2px solid green ;
+    width: 40%;
+    height: 50 px;
+    margin : 5px;
+    display: inline-block;
+
+}

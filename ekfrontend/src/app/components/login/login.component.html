@@ -1,0 +1,29 @@
+
+<form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+    <div class="form-group">
+        <input 
+            type="text" 
+            placeholder="Email"
+            [(ngModel)]="user.email"
+            [ngClass]="{'is-invalid':useremail.errors && useremail.touched}" 
+            class="form-control" 
+            name="email"
+            #useremail="ngModel"
+            required
+          >
+      </div>
+      <div class="form-group">
+        <input 
+            type="password" 
+            placeholder="Password"
+            [(ngModel)]="user.password"
+            [ngClass]="{'is-invalid':userpassword.errors && userpassword.touched}" 
+            class="form-control" 
+            name="password"
+            #userpassword="ngModel"
+            required
+            minlength="2"
+          >
+      </div>
+      <button (click)="showUserForm = !showUserForm" class="btn btn-dark mb-3">Login</button>
+</form>

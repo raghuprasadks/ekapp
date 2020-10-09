@@ -1,0 +1,73 @@
+<form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+  <div class="form-group">
+    <input 
+    type="text" 
+    placeholder="name"
+    [(ngModel)]="user.name" 
+    class="form-control" 
+    name="name"
+    #usermobilenumber="ngModel"
+      >
+</div>
+<div class="form-group">
+    <input 
+        type="text" 
+        placeholder="Mobile Number"
+        [(ngModel)]="user.mobilenumber" 
+        [ngClass]="{'is-invalid':usermobilenumber.errors && usermobilenumber.touched}"
+        class="form-control" 
+        name="mobilenumber"
+        #usermobilenumber="ngModel"
+        required
+        pattern="^[0-9]*$"
+        maxlength=10
+        minlength=10
+      >
+      <div [hidden]="!usermobilenumber.errors?.required" class="invalid-feedback">
+        mobilenumber is required
+      </div>
+  
+      <div [hidden]="!usermobilenumber.errors?.pattern" class="invalid-feedback">
+        Please, Enter 10 digit Mobile Number
+      </div>
+</div>
+<div class="form-group">
+  <input 
+      type="text" 
+      placeholder="Email"
+      [(ngModel)]="user.email"
+      [ngClass]="{'is-invalid':useremail.errors && useremail.touched}" 
+      class="form-control" 
+      name="email"
+      #useremail="ngModel"
+      required
+      pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
+    >
+    <div [hidden]="!useremail.errors?.required" class="invalid-feedback">
+      Email name required
+    </div>
+
+    <div [hidden]="!useremail.errors?.pattern" class="invalid-feedback">
+        Email is not valid
+    </div>
+</div>
+<div class="form-group">
+  <input 
+      type="password" 
+      placeholder="Password"
+      [(ngModel)]="user.password"
+      [ngClass]="{'is-invalid':userpassword.errors && userpassword.touched}" 
+      class="form-control" 
+      name="password"
+      #userpassword="ngModel"
+      required
+      minlength="2"
+      pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,12}$"
+    >
+    <div [hidden]="!userpassword.errors?.required" class="invalid-feedback">
+      Password is required
+    </div>
+</div>
+
+<button (click)="showUserForm = !showUserForm" class="btn btn-dark mb-3">Sign Up</button>
+</form>

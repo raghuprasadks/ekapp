@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand navbar-dark bg-primary mb-4">
+    <div class="container">
+      <a routerLink="/" class="navbar-brand">Kaushalya Technical Training and Consultancy</a>
+      <div>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+            <a routerLink="/" class="nav-link">Home</a>
+          </li>
+          
+          <li *ngIf != "isLoggedIn" class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+            <a routerLink="/registration" class="nav-link">Sign-in</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+            <a routerLink="/login" class="nav-link">Log-In</a>
+          </li>
+
+          <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+            <a routerLink="/mycourses" class="nav-link">My Courses</a>
+          </li>
+
+          <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+            <a routerLink="/myCourseVideos" class="nav-link">My Course Videos</a>
+          </li>
+
+          <li *ngIf = "isLoggedIn" class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+            <a routerLink="/logout" class="nav-link">Logout</a>
+          </li>
+        </ul> 
+      </div>
+    </div>
+  </nav>

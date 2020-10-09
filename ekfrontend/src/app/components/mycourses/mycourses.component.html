@@ -1,0 +1,10 @@
+<p>MyCourses</p>
+
+<div>
+    <div id="course" *ngFor="let course of mycourses">
+        <h1 style="text-align: center;">{{course.name}}</h1>
+        <h2>{{course.description}}</h2>
+        <button ng-model =([course.id]) (click)="getCourseVideos(course.id)">Course Videos</button>
+
+    </div>
+</div>

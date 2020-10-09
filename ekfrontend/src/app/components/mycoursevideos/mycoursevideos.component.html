@@ -1,0 +1,23 @@
+<p>mycoursevideos works!</p>
+
+<!--
+    id:number;
+    name:string;
+    sectionid:number;
+    sectionname:string;
+    videourl:string;
+-->
+
+
+<h1>Course Videos - {{myCourseVideos[0].name}}</h1>
+<div class="card" *ngFor="let coursevideos of myCourseVideos">
+
+  <div >
+    <h1 style="text-align: center;">{{ coursevideos.sectionname }}</h1>
+  </div>
+  <div style="text-align: center;">
+  <video controls width="100%" height="300px">
+    <source src="{{coursevideos.videourl}}" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
